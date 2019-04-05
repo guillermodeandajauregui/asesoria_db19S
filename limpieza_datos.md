@@ -503,4 +503,534 @@ head(contratos_2017)
     ## 5                               RAJIVA CONSTRUCCIONES SA DE CV
     ## 6                            IECO CONSTRUCCIONES, S.A. DE C.V.
 
+Como identificar los que son de escuelas?
+
+``` r
+contratos_2017 %>% filter(SIGLAS == "MOR", TIPO_CONTRATACION == "Obra Pública") %>% select(DEPENDENCIA) %>% table
+```
+
+    ## .
+    ##                                 MOR-Comisión Estatal del Agua 
+    ##                                                            55 
+    ## MOR-Instituto Estatal de Infraestructura Educativa de Morelos 
+    ##                                                           415 
+    ##                       MOR-Presidencia Municipal de Cuernavaca 
+    ##                                                            22 
+    ##                  MOR-Presidencia Municipal de Emiliano Zapata 
+    ##                                                            12 
+    ##                       MOR-Presidencia Municipal de Jantetelco 
+    ##                                                            28 
+    ##                        MOR-Presidencia Municipal de Miacatlán 
+    ##                                                             1 
+    ##                         MOR-Presidencia Municipal de Ocuituco 
+    ##                                                             7 
+    ##                  MOR-Presidencia Municipal de Puente de Ixtla 
+    ##                                                             2 
+    ##                          MOR-Presidencia Municipal de Temixco 
+    ##                                                            11 
+    ##                   MOR-Presidencia Municipal de Tlaquiltenango 
+    ##                                                             1 
+    ##                       MOR-Presidencia Municipal de Tlayacapan 
+    ##                                                             3 
+    ##                        MOR-Presidencia Municipal de Totolapan 
+    ##                                                             1 
+    ##                         MOR-Presidencia Municipal de Yautepec 
+    ##                                                             3 
+    ##                        MOR-Presidencia Municipal de Zacatepec 
+    ##                                                             2 
+    ##                              MOR-Secretaría de Obras Públicas 
+    ##                                                            96
+
+``` r
+contratos_2017 %>% filter(SIGLAS == "MEX", TIPO_CONTRATACION == "Obra Pública") %>% select(DEPENDENCIA) %>% table
+```
+
+    ## .
+    ##                                                                                                         MEX-Junta de Caminos del Estado de México 
+    ##                                                                                                                                                53 
+    ##                                                                MEX-Organismo de Agua Potable, Alcantarillado y Saneamiento de Naucalpan de Juárez 
+    ##                                                                                                                                                 5 
+    ##                                                                                         MEX-ORGANISMO DESCENTRALIZADO DE AGUA POTABLE DE ECATEPEC 
+    ##                                                                                                                                                12 
+    ## MEX-Organismo Público descentralizado, para la Prestacion de los Servicios de Agua Potable, Alcantarillado y Saneamiento del municipio de Metepec 
+    ##                                                                                                                                                 7 
+    ##                                                                                                   MEX-Presidencia Municipal de Almoloya de Juárez 
+    ##                                                                                                                                                 1 
+    ##                                                                                                          MEX-Presidencia Municipal de Atlacomulco 
+    ##                                                                                                                                                 8 
+    ##                                                                                                             MEX-Presidencia Municipal de Calimaya 
+    ##                                                                                                                                                 5 
+    ##                                                                                                               MEX-Presidencia Municipal de Chalco 
+    ##                                                                                                                                                 5 
+    ##                                                                                                        MEX-Presidencia Municipal de Chapa de Mota 
+    ##                                                                                                                                                15 
+    ##                                                                                              MEX-Presidencia Municipal de Coacalco de Berriozábal 
+    ##                                                                                                                                                 8 
+    ##                                                                                                   MEX-Presidencia Municipal de Cuautitlán Izcalli 
+    ##                                                                                                                                                 3 
+    ##                                                                                                        MEX-Presidencia Municipal de Donato Guerra 
+    ##                                                                                                                                                26 
+    ##                                                                                                  MEX-Presidencia Municipal de Ecatepec de Morelos 
+    ##                                                                                                                                                25 
+    ##                                                                                                               MEX-Presidencia Municipal de El Oro 
+    ##                                                                                                                                                 3 
+    ##                                                                                                           MEX-Presidencia Municipal de Ixtapaluca 
+    ##                                                                                                                                                58 
+    ##                                                                                                    MEX-Presidencia Municipal de Ixtapan de la Sal 
+    ##                                                                                                                                                 1 
+    ##                                                                                                           MEX-Presidencia Municipal de Ixtlahuaca 
+    ##                                                                                                                                                 5 
+    ##                                                                                                            MEX-Presidencia Municipal de Jilotepec 
+    ##                                                                                                                                                21 
+    ##                                                                                                               MEX-Presidencia Municipal de La Paz 
+    ##                                                                                                                                                57 
+    ##                                                                                                              MEX-Presidencia Municipal de Metepec 
+    ##                                                                                                                                                37 
+    ##                                                                                                        MEX-Presidencia Municipal de Mexicaltzingo 
+    ##                                                                                                                                                 2 
+    ##                                                                                                  MEX-Presidencia Municipal de Naucalpan de Juárez 
+    ##                                                                                                                                                21 
+    ##                                                                                                           MEX-Presidencia Municipal de Nextlalpan 
+    ##                                                                                                                                                15 
+    ##                                                                                                       MEX-Presidencia Municipal de Nezahualcóyotl 
+    ##                                                                                                                                                58 
+    ##                                                                                                            MEX-Presidencia Municipal de Ocoyoacac 
+    ##                                                                                                                                                10 
+    ##                                                                                                          MEX-Presidencia Municipal de Otzolotepec 
+    ##                                                                                                                                                 3 
+    ##                                                                                                            MEX-Presidencia Municipal de Papalotla 
+    ##                                                                                                                                                 9 
+    ##                                                                                                          MEX-Presidencia Municipal de Santo Tomás 
+    ##                                                                                                                                                 1 
+    ##                                                                                                              MEX-Presidencia Municipal de Tecámac 
+    ##                                                                                                                                                 5 
+    ##                                                                                                        MEX-Presidencia Municipal de Temascaltepec 
+    ##                                                                                                                                                 1 
+    ##                                                                                                           MEX-Presidencia Municipal de Tepetlixpa 
+    ##                                                                                                                                                11 
+    ##                                                                                                        MEX-Presidencia Municipal de Tianguistenco 
+    ##                                                                                                                                                 1 
+    ##                                                                                                          MEX-Presidencia Municipal de Tlalmanalco 
+    ##                                                                                                                                                 2 
+    ##                                                                                                  MEX-Presidencia Municipal de Tlalnepantla de Baz 
+    ##                                                                                                                                                 3 
+    ##                                                                                                               MEX-Presidencia Municipal de Toluca 
+    ##                                                                                                                                                 9 
+    ##                                                                                                            MEX-Presidencia Municipal de Tonanitla 
+    ##                                                                                                                                                 1 
+    ##                                                                                                             MEX-Presidencia Municipal de Tonatico 
+    ##                                                                                                                                                 1 
+    ##                                                                                                       MEX-Presidencia Municipal de Valle de Bravo 
+    ##                                                                                                                                                 1 
+    ##                                                                                          MEX-Presidencia Municipal de Valle de Chalco Solidaridad 
+    ##                                                                                                                                                16 
+    ##                                                                                                     MEX-Presidencia Municipal de Villa de Allende 
+    ##                                                                                                                                                22 
+    ##                                                                                                          MEX-Presidencia Municipal de Zacazonapan 
+    ##                                                                                                                                                 4 
+    ##                                                                                                                    MEX-Secretaría de Obra Pública 
+    ##                                                                                                                                                 4 
+    ##                                                                                                            MEX-Secretaría del Agua y Obra Pública 
+    ##                                                                                                                                                 1 
+    ##                                                                                                     MEX-Universidad Autónoma del Estado de México 
+    ##                                                                                                                                                 9
+
+``` r
+contratos_2017 %>% filter(SIGLAS == "PUE", TIPO_CONTRATACION == "Obra Pública") %>% select(DEPENDENCIA) %>% table
+```
+
+    ## .
+    ##                                                                   PUE-Benemérita Universidad Autónoma de Puebla 
+    ##                                                                                                              20 
+    ##                                                            PUE-Comisión Estatal de Agua y Saneamiento de Puebla 
+    ##                                                                                                              34 
+    ##                                    PUE-Comité Administrador Poblano para la Construcción de Espacios Educativos 
+    ##                                                                                                             198 
+    ##                                                                            PUE-Presidencia Municipal de Acajete 
+    ##                                                                                                               9 
+    ##                                                                            PUE-Presidencia Municipal de Acateno 
+    ##                                                                                                               2 
+    ##                                                                            PUE-Presidencia Municipal de Acatlán 
+    ##                                                                                                              14 
+    ##                                                                          PUE-Presidencia Municipal de Acatzingo 
+    ##                                                                                                              25 
+    ##                                                                           PUE-Presidencia Municipal de Acteopan 
+    ##                                                                                                               4 
+    ##                                                                         PUE-Presidencia Municipal de Ahuacatlán 
+    ##                                                                                                               4 
+    ##                                                                           PUE-Presidencia Municipal de Ahuatlán 
+    ##                                                                                                               2 
+    ##                                                                        PUE-Presidencia Municipal de Ahuazotepec 
+    ##                                                                                                               3 
+    ##                                                                       PUE-Presidencia Municipal de Ahuehuetitla 
+    ##                                                                                                               1 
+    ##                                                                            PUE-Presidencia Municipal de Ajalpan 
+    ##                                                                                                              16 
+    ##                                                                    PUE-Presidencia Municipal de Albino Zertuche 
+    ##                                                                                                               3 
+    ##                                                                           PUE-Presidencia Municipal de Altepexi 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Amixtlán 
+    ##                                                                                                               1 
+    ##                                                                             PUE-Presidencia Municipal de Amozoc 
+    ##                                                                                                              10 
+    ##                                                                           PUE-Presidencia Municipal de Aquixtla 
+    ##                                                                                                               2 
+    ##                                                                            PUE-Presidencia Municipal de Atempan 
+    ##                                                                                                              33 
+    ##                                                                            PUE-Presidencia Municipal de Atexcal 
+    ##                                                                                                               2 
+    ##                                                                       PUE-Presidencia Municipal de Atlequizayan 
+    ##                                                                                                               5 
+    ##                                                                            PUE-Presidencia Municipal de Atlixco 
+    ##                                                                                                              30 
+    ##                                                                        PUE-Presidencia Municipal de Atoyatempan 
+    ##                                                                                                               3 
+    ##                                                                             PUE-Presidencia Municipal de Atzala 
+    ##                                                                                                               2 
+    ##                                                                      PUE-Presidencia Municipal de Atzitzihuacán 
+    ##                                                                                                               5 
+    ##                                                                             PUE-Presidencia Municipal de Axutla 
+    ##                                                                                                               1 
+    ##                                                               PUE-Presidencia Municipal de Ayotoxco de Guerrero 
+    ##                                                                                                               2 
+    ##                                                                             PUE-Presidencia Municipal de Calpan 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Caltepec 
+    ##                                                                                                               1 
+    ##                                                                        PUE-Presidencia Municipal de Camocuautla 
+    ##                                                                                                               3 
+    ##                                                                     PUE-Presidencia Municipal de Cañada Morelos 
+    ##                                                                                                               4 
+    ##                                                                          PUE-Presidencia Municipal de Caxhuacan 
+    ##                                                                                                               1 
+    ##                                                             PUE-Presidencia Municipal de Chalchicomula de Sesma 
+    ##                                                                                                               6 
+    ##                                                                           PUE-Presidencia Municipal de Chiautla 
+    ##                                                                                                              11 
+    ##                                                                        PUE-Presidencia Municipal de Chiautzingo 
+    ##                                                                                                               1 
+    ##                                                                            PUE-Presidencia Municipal de Chietla 
+    ##                                                                                                              20 
+    ##                                                                       PUE-Presidencia Municipal de Chignahuapan 
+    ##                                                                                                               7 
+    ##                                                                         PUE-Presidencia Municipal de Chignautla 
+    ##                                                                                                               1 
+    ##                                                                              PUE-Presidencia Municipal de Chila 
+    ##                                                                                                               1 
+    ##                                                                    PUE-Presidencia Municipal de Chila de la Sal 
+    ##                                                                                                               6 
+    ##                                                                          PUE-Presidencia Municipal de Chinantla 
+    ##                                                                                                               5 
+    ##                                                                          PUE-Presidencia Municipal de Coatzingo 
+    ##                                                                                                               3 
+    ##                                                                          PUE-Presidencia Municipal de Cohetzala 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Coronango 
+    ##                                                                                                               5 
+    ##                                                                          PUE-Presidencia Municipal de Coxcatlán 
+    ##                                                                                                               1 
+    ##                                                                         PUE-Presidencia Municipal de Coyomeapan 
+    ##                                                                                                               1 
+    ##                                                                          PUE-Presidencia Municipal de Coyotepec 
+    ##                                                                                                               2 
+    ##                                                               PUE-Presidencia Municipal de Cuapiaxtla de Madero 
+    ##                                                                                                              20 
+    ##                                                                         PUE-Presidencia Municipal de Cuautempan 
+    ##                                                                                                               4 
+    ##                                                                        PUE-Presidencia Municipal de Cuautinchán 
+    ##                                                                                                               2 
+    ##                                                                 PUE-Presidencia Municipal de Cuayuca de Andrade 
+    ##                                                                                                               5 
+    ##                                                             PUE-Presidencia Municipal de Cuetzalan del Progreso 
+    ##                                                                                                               2 
+    ##                                                                     PUE-Presidencia Municipal de Domingo Arenas 
+    ##                                                                                                               2 
+    ##                                                                       PUE-Presidencia Municipal de Eloxochitlán 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Esperanza 
+    ##                                                                                                               2 
+    ##                                                                  PUE-Presidencia Municipal de Francisco Z. Mena 
+    ##                                                                                                              12 
+    ##                                                             PUE-Presidencia Municipal de General Felipe Ángeles 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Guadalupe 
+    ##                                                                                                               3 
+    ##                                                               PUE-Presidencia Municipal de Hermenegildo Galeana 
+    ##                                                                                                               1 
+    ##                                                                              PUE-Presidencia Municipal de Honey 
+    ##                                                                                                               7 
+    ##                                                                       PUE-Presidencia Municipal de Huatlatlauca 
+    ##                                                                                                               6 
+    ##                                                                       PUE-Presidencia Municipal de Huauchinango 
+    ##                                                                                                               1 
+    ##                                                                          PUE-Presidencia Municipal de Huehuetla 
+    ##                                                                                                               2 
+    ##                                                                PUE-Presidencia Municipal de Huehuetlán el Chico 
+    ##                                                                                                               7 
+    ##                                                               PUE-Presidencia Municipal de Huehuetlán el Grande 
+    ##                                                                                                               1 
+    ##                                                                        PUE-Presidencia Municipal de Huejotzingo 
+    ##                                                                                                              10 
+    ##                                                                           PUE-Presidencia Municipal de Hueyapan 
+    ##                                                                                                               1 
+    ##                                                                       PUE-Presidencia Municipal de Huitziltepec 
+    ##                                                                                                               4 
+    ##                                                                        PUE-Presidencia Municipal de Ixcaquixtla 
+    ##                                                                                                               3 
+    ##                                                                    PUE-Presidencia Municipal de Ixtacamaxtitlán 
+    ##                                                                                                               9 
+    ##                                                                PUE-Presidencia Municipal de Izúcar de Matamoros 
+    ##                                                                                                              26 
+    ##                                                                             PUE-Presidencia Municipal de Jalpan 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Jolalpan 
+    ##                                                                                                               5 
+    ##                                                                            PUE-Presidencia Municipal de Jonotla 
+    ##                                                                                                               1 
+    ##                                                                             PUE-Presidencia Municipal de Jopala 
+    ##                                                                                                               5 
+    ##                                                                       PUE-Presidencia Municipal de Juan Galindo 
+    ##                                                                                                               1 
+    ##                                                                     PUE-Presidencia Municipal de Juan N. Méndez 
+    ##                                                                                                               1 
+    ##                                                       PUE-Presidencia Municipal de La Magdalena Tlatlauquitepec 
+    ##                                                                                                               1 
+    ##                                                                             PUE-Presidencia Municipal de Libres 
+    ##                                                                                                               4 
+    ##                                                                PUE-Presidencia Municipal de Los Reyes de Juárez 
+    ##                                                                                                               9 
+    ##                                                             PUE-Presidencia Municipal de Mazapiltepec de Juárez 
+    ##                                                                                                               3 
+    ##                                                                             PUE-Presidencia Municipal de Mixtla 
+    ##                                                                                                               3 
+    ##                                                                          PUE-Presidencia Municipal de Nauzontla 
+    ##                                                                                                               1 
+    ##                                                                      PUE-Presidencia Municipal de Nicolás Bravo 
+    ##                                                                                                               9 
+    ##                                                                          PUE-Presidencia Municipal de Nopalucan 
+    ##                                                                                                               6 
+    ##                                                                           PUE-Presidencia Municipal de Ocotepec 
+    ##                                                                                                               4 
+    ##                                                                            PUE-Presidencia Municipal de Olintla 
+    ##                                                                                                               3 
+    ##                                                                           PUE-Presidencia Municipal de Oriental 
+    ##                                                                                                               4 
+    ##                                                                          PUE-Presidencia Municipal de Pahuatlán 
+    ##                                                                                                               3 
+    ##                                                                    PUE-Presidencia Municipal de Palmar de Bravo 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Pantepec 
+    ##                                                                                                               2 
+    ##                                                                        PUE-Presidencia Municipal de Petlalcingo 
+    ##                                                                                                               3 
+    ##                                                                            PUE-Presidencia Municipal de Piaxtla 
+    ##                                                                                                              11 
+    ##                                                                             PUE-Presidencia Municipal de Puebla 
+    ##                                                                                                              32 
+    ##                                                                          PUE-Presidencia Municipal de Quecholac 
+    ##                                                                                                               3 
+    ##                                                               PUE-Presidencia Municipal de Rafael Lara Grajales 
+    ##                                                                                                               2 
+    ##                                                                 PUE-Presidencia Municipal de San Andrés Cholula 
+    ##                                                                                                               1 
+    ##                                                   PUE-Presidencia Municipal de San Diego la Mesa Tochimiltzingo 
+    ##                                                                                                               1 
+    ##                                                            PUE-Presidencia Municipal de San Felipe Teotlalcingo 
+    ##                                                                                                               1 
+    ##                                                                PUE-Presidencia Municipal de San Felipe Tepatlán 
+    ##                                                                                                               4 
+    ##                                                                 PUE-Presidencia Municipal de San Gabriel Chilac 
+    ##                                                                                                               2 
+    ##                                                            PUE-Presidencia Municipal de San Jerónimo Xayacatlán 
+    ##                                                                                                               2 
+    ##                                                                    PUE-Presidencia Municipal de San José Chiapa 
+    ##                                                                                                               2 
+    ##                                                                PUE-Presidencia Municipal de San José Miahuatlán 
+    ##                                                                                                               4 
+    ##                                                                   PUE-Presidencia Municipal de San Juan Atzompa 
+    ##                                                                                                               1 
+    ##                                                              PUE-Presidencia Municipal de San Martín Texmelucan 
+    ##                                                                                                               4 
+    ##                                                              PUE-Presidencia Municipal de San Martín Totoltepec 
+    ##                                                                                                               2 
+    ##                                                            PUE-Presidencia Municipal de San Matías Tlalancaleca 
+    ##                                                                                                               1 
+    ##                                                                 PUE-Presidencia Municipal de San Miguel Ixitlán 
+    ##                                                                                                               2 
+    ##                                                         PUE-Presidencia Municipal de San Nicolás de los Ranchos 
+    ##                                                                                                               3 
+    ##                                                                  PUE-Presidencia Municipal de San Pablo Anicano 
+    ##                                                                                                               5 
+    ##                                                                  PUE-Presidencia Municipal de San Pedro Cholula 
+    ##                                                                                                               6 
+    ##                                                           PUE-Presidencia Municipal de San Pedro Yeloixtlahuaca 
+    ##                                                                                                               4 
+    ##                                                               PUE-Presidencia Municipal de San Salvador el Seco 
+    ##                                                                                                              52 
+    ##                                                           PUE-Presidencia Municipal de San Sebastián Tlacotepec 
+    ##                                                                                                               1 
+    ##                                                              PUE-Presidencia Municipal de Santa Inés Ahuatempan 
+    ##                                                                                                               7 
+    ##                                                               PUE-Presidencia Municipal de Santa Isabel Cholula 
+    ##                                                                                                               1 
+    ##                                                                PUE-Presidencia Municipal de Santiago Miahuatlán 
+    ##                                                                                                               1 
+    ##                                                            PUE-Presidencia Municipal de Santo Tomás Hueyotlipan 
+    ##                                                                                                               3 
+    ##                                                                           PUE-Presidencia Municipal de Soltepec 
+    ##                                                                                                               2 
+    ##                                                                  PUE-Presidencia Municipal de Tecali de Herrera 
+    ##                                                                                                               4 
+    ##                                                                       PUE-Presidencia Municipal de Tecamachalco 
+    ##                                                                                                               1 
+    ##                                                                         PUE-Presidencia Municipal de Tecomatlán 
+    ##                                                                                                              14 
+    ##                                                                           PUE-Presidencia Municipal de Tehuacán 
+    ##                                                                                                              29 
+    ##                                                                        PUE-Presidencia Municipal de Tehuitzingo 
+    ##                                                                                                               2 
+    ##                                                                         PUE-Presidencia Municipal de Teopantlán 
+    ##                                                                                                               1 
+    ##                                                                          PUE-Presidencia Municipal de Teotlalco 
+    ##                                                                                                               3 
+    ##                                                                   PUE-Presidencia Municipal de Tepanco de López 
+    ##                                                                                                               1 
+    ##                                                               PUE-Presidencia Municipal de Tepango de Rodríguez 
+    ##                                                                                                               1 
+    ##                                                                            PUE-Presidencia Municipal de Tepeaca 
+    ##                                                                                                              38 
+    ##                                                                          PUE-Presidencia Municipal de Tepeojuma 
+    ##                                                                                                               6 
+    ##                                                                        PUE-Presidencia Municipal de Tepetzintla 
+    ##                                                                                                               2 
+    ##                                                                            PUE-Presidencia Municipal de Tepexco 
+    ##                                                                                                               2 
+    ##                                                                PUE-Presidencia Municipal de Tepexi de Rodríguez 
+    ##                                                                                                               7 
+    ##                                                                       PUE-Presidencia Municipal de Tepeyahualco 
+    ##                                                                                                               3 
+    ##                                                         PUE-Presidencia Municipal de Tepeyahualco de Cuauhtémoc 
+    ##                                                                                                               5 
+    ##                                                                   PUE-Presidencia Municipal de Tetela de Ocampo 
+    ##                                                                                                               9 
+    ##                                                          PUE-Presidencia Municipal de Teteles de Avila Castillo 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Teziutlán 
+    ##                                                                                                               3 
+    ##                                                                    PUE-Presidencia Municipal de Tianguismanalco 
+    ##                                                                                                               1 
+    ##                                                                             PUE-Presidencia Municipal de Tilapa 
+    ##                                                                                                              12 
+    ##                                                        PUE-Presidencia Municipal de Tlacotepec de Benito Juárez 
+    ##                                                                                                               2 
+    ##                                                                      PUE-Presidencia Municipal de Tlacuilotepec 
+    ##                                                                                                              11 
+    ##                                                                          PUE-Presidencia Municipal de Tlahuapan 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Tlapacoya 
+    ##                                                                                                               1 
+    ##                                                                          PUE-Presidencia Municipal de Tlapanalá 
+    ##                                                                                                               4 
+    ##                                                                    PUE-Presidencia Municipal de Tlatlauquitepec 
+    ##                                                                                                               3 
+    ##                                                                             PUE-Presidencia Municipal de Tlaxco 
+    ##                                                                                                               7 
+    ##                                                                          PUE-Presidencia Municipal de Tochtepec 
+    ##                                                                                                               7 
+    ##                                                             PUE-Presidencia Municipal de Totoltepec de Guerrero 
+    ##                                                                                                               3 
+    ##                                                                           PUE-Presidencia Municipal de Tulcingo 
+    ##                                                                                                               3 
+    ##                                                               PUE-Presidencia Municipal de Tuzamapan de Galeana 
+    ##                                                                                                               1 
+    ##                                                                      PUE-Presidencia Municipal de Tzicatlacoyan 
+    ##                                                                                                               1 
+    ##                                                                PUE-Presidencia Municipal de Venustiano Carranza 
+    ##                                                                                                               5 
+    ##                                                                   PUE-Presidencia Municipal de Vicente Guerrero 
+    ##                                                                                                               3 
+    ##                                                                PUE-Presidencia Municipal de Xayacatlán de Bravo 
+    ##                                                                                                               4 
+    ##                                                                          PUE-Presidencia Municipal de Xicotepec 
+    ##                                                                                                              11 
+    ##                                                                           PUE-Presidencia Municipal de Xicotlán 
+    ##                                                                                                               3 
+    ##                                                             PUE-Presidencia Municipal de Xochitlán Todos Santos 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Yaonáhuac 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Zacapala 
+    ##                                                                                                               2 
+    ##                                                                        PUE-Presidencia Municipal de Zacapoaxtla 
+    ##                                                                                                               1 
+    ##                                                                           PUE-Presidencia Municipal de Zacatlán 
+    ##                                                                                                               7 
+    ##                                                                         PUE-Presidencia Municipal de Zapotitlán 
+    ##                                                                                                               2 
+    ##                                                                           PUE-Presidencia Municipal de Zaragoza 
+    ##                                                                                                               6 
+    ##                                                                             PUE-Presidencia Municipal de Zautla 
+    ##                                                                                                               4 
+    ##                                                                        PUE-Presidencia Municipal de Zinacatepec 
+    ##                                                                                                               1 
+    ##                                                                          PUE-Presidencia Municipal de Zoquiapan 
+    ##                                                                                                               2 
+    ##                                                                          PUE-Presidencia Municipal de Zoquitlán 
+    ##                                                                                                               8 
+    ##                                                                     PUE-Secretaría De Finanzas y Administración 
+    ##                                                                                                             104 
+    ##                  PUE-Sistema Operador de los Servicios de Agua Potable y Alcantarillado del Municipio de Puebla 
+    ##                                                                                                               1 
+    ## PUE-Sistema Operador de los Servicios de Agua Potable y Alcantarillado del municipio de San Martín Texmelucan T 
+    ##                                                                                                               2
+
+``` r
+contratos_2017 %>% filter(SIGLAS == "CDMX", TIPO_CONTRATACION == "Obra Pública") %>% select(DEPENDENCIA) %>% table
+```
+
+    ## .
+    ##                                                  CDMX-Alcaldía de Álvaro Obregón 
+    ##                                                                                2 
+    ##                                                   CDMX-Alcaldía de Benito Juárez 
+    ##                                                                                5 
+    ##                                                        CDMX-Alcaldía de Coyoacán 
+    ##                                                                                3 
+    ##                                           CDMX-Alcaldía de Cuajimalpa de Morelos 
+    ##                                                                                9 
+    ##                                                      CDMX-Alcaldía de Cuauhtémoc 
+    ##                                                                               19 
+    ##                                                      CDMX-Alcaldía de Iztapalapa 
+    ##                                                                               13 
+    ##                                          CDMX-Alcaldía de La Magdalena Contreras 
+    ##                                                                                8 
+    ##                                                  CDMX-Alcaldía de Miguel Hidalgo 
+    ##                                                                                2 
+    ##                                                      CDMX-Alcaldía de Milpa Alta 
+    ##                                                                               10 
+    ##                                                         CDMX-Alcaldía de Tlalpan 
+    ##                                                                               12 
+    ##                                             CDMX-Alcaldía de Venustiano Carranza 
+    ##                                                                               20 
+    ## CDMX-Instituto Local de la Infraestructura Física Educativa del Distrito Federal 
+    ##                                                                                1 
+    ##                       CDMX-Procuraduría General de Justicia del Distrito Federal 
+    ##                                                                                1 
+    ##                                  CDMX-Secretaría de Desarrollo Urbano y Vivienda 
+    ##                                                                                3 
+    ##                                             CDMX-Secretaría de Obras y Servicios 
+    ##                                                                               75 
+    ##                                             CDMX-Secretaría de Seguridad Pública 
+    ##                                                                                1 
+    ##                                               CDMX-Secretaría del Medio Ambiente 
+    ##                                                                                1
+
+``` r
+contratos_2017 %>% filter(SIGLAS == "INIFED", TIPO_CONTRATACION == "Obra Pública") %>% select(DEPENDENCIA) %>% table
+```
+
+    ## .
+    ## Instituto Nacional de la Infraestructura Física Educativa 
+    ##                                                       337
+
 -   Paso 3: Busquemos los CCTs de los planteles dentro de los títulos de los contratos
